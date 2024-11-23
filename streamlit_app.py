@@ -5,7 +5,7 @@ import numpy as np
 
 
 # Load the trained model
-model = joblib.load("Model_liver.pkl")  # including the trained model
+model = joblib.load("Model_liver_xgb.pkl")  # including the trained model
 
 # Function to make predictions
 def predict(input_data):
@@ -42,7 +42,22 @@ ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 gender_numeric = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Combine inputs into a single array
-input_data = np.array([gender_numeric, age, tb, db, alkphos, sgpt, sgot, tp, alb, ag_ratio])
+##([gender_numeric, age, tb, db, alkphos, sgpt, sgot, tp, alb, ag_ratio])
+data = {'gender_numeric'=gender_numeric,
+        'age' = age,
+        'tb' = tb, 
+        'db'=db,
+        'alkphos' = alkphos, 
+        'sgpt'=sgpt, 
+        'sgot' = sgot, 
+        'tp' = tp, 
+        'alb' = alb, 
+        'ag_ratio' = ag_ratio}
+input_df = pd.Dataframe(data, index = [0])
+# input Data
+with st.expander('Input Data'):
+ st.write('**Input Data**')
+ indput_df
 
 # Button for prediction
 if st.button("Predict"):
