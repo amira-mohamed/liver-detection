@@ -39,6 +39,10 @@ tp = col3.number_input("TP", min_value=0.0, max_value=10.0, step=0.1)
 alb = col4.number_input("ALB", min_value=0.0, max_value=10.0, step=0.1)
 ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1)
 
+
+# Process gender input (if needed for your model)
+gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
+
 # Combine inputs into a single array
 
 data = {'gender': gender,
@@ -58,9 +62,6 @@ input_df = pd.DataFrame(data, index = [0])
 with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
-
-# Process gender input (if needed for your model)
-gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Button for prediction
 if st.button("Predict"):
