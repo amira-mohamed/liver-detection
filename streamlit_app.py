@@ -47,7 +47,7 @@ data = {"age" : [age],
         "tb" : [tb], 
         "alkphos" : [alkphos], 
         "sgpt": [sgpt], 
-        "a/g Ratio" : [ag_ratio]}
+        "a/g ratio" : [ag_ratio]}
 
 input_df = pd.DataFrame(data, index = [0])
 
