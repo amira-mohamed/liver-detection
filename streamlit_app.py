@@ -5,10 +5,12 @@ import numpy as np
 
 
 # Load the trained model
-#model = joblib.load("Model_liver.pkl")  # Replace with your model file
+#model = joblib.load("Model_liver.pkl")  # including the trained model
 
 # Function to make predictions
-
+def predict(input_data):
+    prediction = model.predict([input_data])
+    return prediction[0]
 
 # Page Title
 st.title("liver disease classification")
@@ -36,7 +38,17 @@ alb = col4.number_input("ALB", min_value=0.0, max_value=10.0, step=0.1)
 ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1)
 
 
+# Process gender input (if needed for your model)
+gender_numeric = 1 if gender == "Male" else 0  # Assume 1 = Male, 0 = Female
+
+# Combine inputs into a single array
+input_data = np.array([gender_numeric, age, tb, db, alkphos, sgpt, sgot, tp, alb, ag_ratio])
+
 # Button for prediction
 if st.button("Predict"):
+    result = predict(input_data)
+    if result == 1:  # Assuming 1 = Disease and 0 = No Disease
         st.error("The patient is classified as having liver disease.")
-  
+    else:
+        st.success("The patient is classified as healthy.")
+ 
