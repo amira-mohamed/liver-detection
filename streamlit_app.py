@@ -57,7 +57,7 @@ input_df = pd.DataFrame(data, index = [0])
 # input Data
 with st.expander('Input Data'):
  st.write('**Input Data**')
- indput_df
+ input_df
 
 # Process gender input (if needed for your model)
 gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
