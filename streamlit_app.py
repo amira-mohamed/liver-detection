@@ -39,16 +39,16 @@ ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 
 # Combine inputs into a single array
 
-data = {'gender'= gender,
-        'age' = age,
-        'tb' = tb, 
-        'db'=db,
-        'alkphos' = alkphos, 
-        'sgpt'=sgpt, 
-        'sgot' = sgot, 
-        'tp' = tp, 
-        'alb' = alb, 
-        'ag_ratio' = ag_ratio}
+data = {'gender': gender,
+        'age' : age,
+        'tb' : tb, 
+        'db': db,
+        'alkphos' : alkphos, 
+        'sgpt': sgpt, 
+        'sgot' : sgot, 
+        'tp' : tp, 
+        'alb' : alb, 
+        'ag_ratio' : ag_ratio}
 
 input_df = pd.Dataframe(data, index = [0])
 
