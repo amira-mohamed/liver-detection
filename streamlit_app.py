@@ -1,9 +1,8 @@
-
-
 import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+import scikit-learn 
 
 
 # Load the trained model
@@ -14,7 +13,6 @@ import numpy as np
 
 # Page Title
 st.title("liver disease classification")
-
 st.info('This App for Liver Detection predicition')
 
 # Load Data
