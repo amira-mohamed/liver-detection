@@ -15,5 +15,5 @@ st.title("liver disease classification")
 st.info('This App for Liver Detection predicition')
 
 # Load Data
-df = pd.read_csv('https://github.com/amira-mohamed/liver-detection/blob/master/liver_dataset.csv')
+df = pd.read_csv('liver_dataset.csv')
 df
