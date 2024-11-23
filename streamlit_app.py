@@ -5,7 +5,7 @@ import numpy as np
 
 
 # Load the trained model
-#model = joblib.load("Model_liver.pkl")  # including the trained model
+model = joblib.load("Model_liver.pkl")  # including the trained model
 
 # Function to make predictions
 def predict(input_data):
