@@ -15,7 +15,7 @@ st.title("liver disease classification")
 st.info('This App for Liver Detection predicition')
 
 # Load Data
-with st.expander('Data')
+with st.expander('Data'):
  st.write('Raw Data')
  df = pd.read_csv('liver_dataset.csv')
  df
