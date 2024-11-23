@@ -39,7 +39,7 @@ ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 
 # Combine inputs into a single array
 
-data = {'gender_numeric'= gender,
+data = {'gender'= gender,
         'age' = age,
         'tb' = tb, 
         'db'=db,
