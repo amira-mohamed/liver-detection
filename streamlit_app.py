@@ -46,16 +46,16 @@ gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Combine inputs into a single array
 
-data = {'Age' : age,
-        'Gender': gender,
-        'TB' : tb, 
-        'DB': db,
-        'Alkphos' : alkphos, 
-        'SGPT': sgpt, 
-        'SGOT' : sgot, 
-        'TP' : tp, 
-        'ALB' : alb, 
-        'A/G Ratio' : ag_ratio}
+data = {'Age' : [age],
+        'Gender': [gender],
+        'TB' : [tb], 
+        'DB': [db],
+        'Alkphos' : [alkphos], 
+        'SGPT': [sgpt], 
+        'SGOT' : [sgot], 
+        'TP' : [tp], 
+        'ALB' : [alb], 
+        'A/G Ratio' : [ag_ratio]}
 
 input_df = pd.DataFrame(data, index = [0])
 
