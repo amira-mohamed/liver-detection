@@ -37,6 +37,6 @@ ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 
 
 # Button for prediction
-st.button("Predict"):
+if st.button("Predict"):
         st.error("The patient is classified as having liver disease.")
   
