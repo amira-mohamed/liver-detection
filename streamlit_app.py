@@ -38,7 +38,7 @@ sgpt = col1.number_input("SGPT", min_value=0, max_value=100, step=1)
 sgot = col2.number_input("SGOT", min_value=0, max_value=100, step=1)
 tp = col3.number_input("TP", min_value=0.0, max_value=10.0, step=0.1)
 alb = col4.number_input("ALB", min_value=0.0, max_value=10.0, step=0.1)
-ag/ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1)
+ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1)
 
 
 # Process gender input (if needed for your model)
@@ -46,16 +46,16 @@ gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Combine inputs into a single array
 
-data = {'age' : age,
-        'gender': gender,
-        'tb' : tb, 
-        'db': db,
-        'alkphos' : alkphos, 
-        'sgpt': sgpt, 
-        'sgot' : sgot, 
-        'tp' : tp, 
-        'alb' : alb, 
-        'ag/ratio' : ag_ratio}
+data = {'AGE' : age,
+        'Gender': gender,
+        'TB' : tb, 
+        'DB': db,
+        'Alkphos' : alkphos, 
+        'SGPT': sgpt, 
+        'SGOT' : sgot, 
+        'TP' : tp, 
+        'ALB' : alb, 
+        'A/G Ratio' : ag_ratio}
 
 input_df = pd.DataFrame(data, index = [0])
 
