@@ -51,6 +51,7 @@ data = {'gender'= gender,
         'ag_ratio' = ag_ratio}
 
 input_df = pd.Dataframe(data, index = [0])
+
 # input Data
 with st.expander('Input Data'):
  st.write('**Input Data**')
