@@ -26,10 +26,11 @@ with st.expander('Data'):
 
 # create page columns 
 col1, col2, col3, col4, col5= st.columns(5)
-
+Age	Gender	TB	DB	Alkphos	Sgpt	Sgot	TP	ALB	A/G Ratio	Class
 # Inputs
-gender = col1.selectbox("Gender", ["Male", "Female"])
+
 age = col2.number_input("AGE", min_value=0, max_value=120, step=1)
+gender = col1.selectbox("Gender", ["Male", "Female"])
 tb = col3.number_input("TB", min_value=0.0, max_value=10.0, step=0.1)
 db = col4.number_input("DB", min_value=0.0, max_value=10.0, step=0.1)
 alkphos = col5.number_input("Alkphos", min_value=0, max_value=1000, step=1)
@@ -45,8 +46,8 @@ gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Combine inputs into a single array
 
-data = {'gender': gender,
-        'age' : age,
+data = {'age' : age,
+        'gender': gender,
         'tb' : tb, 
         'db': db,
         'alkphos' : alkphos, 
