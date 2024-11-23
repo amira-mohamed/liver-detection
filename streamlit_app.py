@@ -26,7 +26,7 @@ with st.expander('Data'):
 
 # create page columns 
 col1, col2, col3, col4, col5= st.columns(5)
-Age	Gender	TB	DB	Alkphos	Sgpt	Sgot	TP	ALB	A/G Ratio	Class
+
 # Inputs
 
 age = col2.number_input("AGE", min_value=0, max_value=120, step=1)
