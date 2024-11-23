@@ -1,10 +1,5 @@
-'''
-import streamlit as st
 
-st.title('🎈 App Name')
 
-st.write('Hello world!')
-'''
 import streamlit as st
 import pandas as pd
 import joblib
@@ -25,6 +20,7 @@ st.info('This App for Liver Detection predicition')
 df = pd.read_csv('https://github.com/amira-mohamed/liver-detection/blob/master/liver_dataset.csv')
 df
 
+'''
 # create page columns 
 col1, col2, col3, col4, col5= st.columns(5)
 
@@ -46,3 +42,4 @@ ag_ratio = col5.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 if st.button("Predict"):
         st.error("The patient is classified as having liver disease.")
   
+'''
