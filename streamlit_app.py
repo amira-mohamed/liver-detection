@@ -11,7 +11,7 @@ model = joblib.load("Model_liver_xgb.pkl")  # including the trained model
 
 # Function to make predictions
 def predict(input_data):
-    prediction = model.predict([input_data])
+    prediction = model.predict([input_df])
     return prediction[0]
 
 # Page Title
@@ -64,7 +64,7 @@ gender = 1 if gender == "Male" else 2  # Assume 1 = Male, 0 = Female
 
 # Button for prediction
 if st.button("Predict"):
-    result = predict(input_data)
+    result = predict(input_df)
     if result == 1:  # Assuming 1 = Disease and 0 = No Disease
         st.error("The patient is classified as having liver disease.")
     else:
