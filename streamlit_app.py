@@ -52,7 +52,7 @@ data = {'gender': gender,
         'alb' : alb, 
         'ag_ratio' : ag_ratio}
 
-input_df = pd.Dataframe(data, index = [0])
+input_df = pd.DataFrame(data, index = [0])
 
 # input Data
 with st.expander('Input Data'):
