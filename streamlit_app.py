@@ -70,7 +70,7 @@ from xgboost import XGBClassifier
 model = XGBClassifier(random_state=123)
 model.fit(X_train, y_train)
 #y_train_hat = model.predict(X_train)
-y_test_hat = model.predict(input_df)
+y_test_hat = model.predict([input_df])
 
 #------------------------------------------------------------------
 # Page Title
