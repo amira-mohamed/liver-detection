@@ -22,7 +22,7 @@ st.info('This App for Liver Detection predicition')
 with st.expander('Data'):
  st.write('Raw Data')
  df = pd.read_csv('liver_dataset.csv')
- df.head(5)
+ df
 
 # create page columns 
 col1, col2, col3, col4, col5, col6= st.columns(6)
