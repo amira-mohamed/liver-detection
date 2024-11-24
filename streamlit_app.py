@@ -50,7 +50,7 @@ data = {"age" : age,
 
 input_df = pd.DataFrame(data, index = [0])
 
-input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
+##input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
 
 # input Data to present in streamlit
 with st.expander('Input Data'):
