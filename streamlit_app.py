@@ -12,7 +12,7 @@ model = joblib.load("Model_liver_xgb.pkl")  # including the trained model
 # Function to make predictions
 def predict(input_data):
     prediction = model.predict(input_df)
-    return prediction
+    return prediction[0]
 
 # Page Title
 st.title("liver disease classification")
