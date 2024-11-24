@@ -38,8 +38,10 @@ ag_ratio = col6.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 
 
 # Process gender input (if needed for your model)
-gender = 2 if gender == "Male" else 1  # Assume 1 = Male, 0 = Female
-
+# Assume 2 = Male, 1 = Female
+if gender == "Male":
+    gender = 2
+    else 1
 # Combine inputs into a single array
 
 data = {"age" : [age],
@@ -57,6 +59,7 @@ with st.expander('Input Data'):
  input_df
 
 st.info(predict(input_df))
+
 # Button for prediction
 if st.button("Predict"):
     result = predict(input_df)
