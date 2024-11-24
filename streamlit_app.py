@@ -108,7 +108,7 @@ with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(predict(input_df))
+st.info(y_test_hat)
 # Button for prediction
 if st.button("Predict"):
     result = y_test_hat
