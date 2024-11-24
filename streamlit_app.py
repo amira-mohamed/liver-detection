@@ -58,7 +58,6 @@ with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(predict(input_df))
 
 # Button for prediction
 if st.button("Predict"):
