@@ -5,15 +5,74 @@ import numpy as np
 from xgboost import XGBClassifier
 
 
+try:
+    get_ipython().run_line_magic('matplotlib', 'inline')
+except NameError:
+    pass  # Skip if get_ipython is not defined
 
-# Load the trained model
-model = joblib.load("Model_liver_xgb.pkl")  # including the trained model
+import warnings
+warnings.filterwarnings('ignore')
 
-# Function to make predictions
-def predict(input_data):
-    prediction = model.predict(input_df)
-    return prediction[0]
+# Load Dataset
 
+df = pd.read_csv('liver_dataset.csv')
+
+df.columns = df.columns.map(str.lower)                            
+
+# replacing missing values with mean
+df['a/g ratio'].fillna(df['a/g ratio'].mean(), inplace=True)
+
+
+df.drop(['db', 'sgot', 'tp', 'alb'], axis=1, inplace=True)
+
+
+skewed_cols = ['a/g ratio','tb', 'alkphos', 'sgpt']
+
+
+for c in skewed_cols:
+    df[c] = df[c].apply('log1p')
+
+
+
+from sklearn.preprocessing import RobustScaler
+rs = RobustScaler()
+for c in df[['age', 'gender', 'tb', 'alkphos', 'sgpt', 'a/g ratio']].columns:
+    df[c] = rs.fit_transform(df[c].values.reshape(-1, 1))
+
+
+
+from sklearn.utils import resample
+#df['class'].value_counts()
+
+
+minority = df[df['class'] ==0]
+majority = df[df['class']==1]
+
+minority_upsample = resample(minority, replace=True, n_samples=majority.shape[0])
+
+df = pd.concat([minority_upsample, majority], axis=0)
+
+
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(df.drop('class', axis=1), df['class'], test_size=0.05, random_state=123)
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
+
+from xgboost import XGBClassifier
+
+model = XGBClassifier(random_state=123)
+model.fit(X_train, y_train)
+#y_train_hat = model.predict(X_train)
+y_test_hat = model.predict(input_df)
+
+#------------------------------------------------------------------
 # Page Title
 st.title("liver disease classification")
 st.info('This App for Liver Detection predicition')
@@ -59,7 +118,7 @@ with st.expander('Input Data'):
 st.info(predict(input_df))
 # Button for prediction
 if st.button("Predict"):
-    result = predict(input_df)
+    result = y_test_hat
     if result == 1:  # Assuming 1 = Disease and 0 = No Disease
         st.error("The patient is classified as having liver disease.")
     else:
