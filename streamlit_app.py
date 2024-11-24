@@ -38,22 +38,18 @@ ag_ratio = col6.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 
 
 # Process gender input (if needed for your model)
-'''
-# Assume 2 = Male, 1 = Female
-if gender == "Male":
-    gender_type = 2 
-else: gender_type = 1
-'''
+
 # Combine inputs into a single array
 
-data = {"age" : [age],
-        "gender": [gender],
-        "tb" : [tb], 
-        "alkphos" : [alkphos], 
-        "sgpt": [sgpt], 
-        "a/g ratio" : [ag_ratio]}
+data = {"age" : age,
+        "gender": gender,
+        "tb" : tb,
+        "alkphos" : alkphos, 
+        "sgpt": sgpt, 
+        "a/g ratio" : ag_ratio}
 
 input_df = pd.DataFrame(data, index = [0])
+
 input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
 
 # input Data to present in streamlit
