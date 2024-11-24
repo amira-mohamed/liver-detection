@@ -18,12 +18,6 @@ def predict(input_data):
 st.title("liver disease classification")
 st.info('This App for Liver Detection predicition')
 
-# Load Data
-with st.expander('Data'):
- st.write('Raw Data')
- df = pd.read_csv('liver_dataset.csv')
- df
-
 # create page columns 
 col1, col2, col3, col4, col5, col6= st.columns(6)
 
@@ -52,11 +46,6 @@ input_df = pd.DataFrame(data, index = [0])
 
 # Encoding Gender
 input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
-
-# input Data to present in streamlit
-with st.expander('Input Data'):
- st.write('**Input Data**')
- input_df
 
 
 # Button for prediction
