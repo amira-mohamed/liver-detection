@@ -59,10 +59,11 @@ with st.expander('Input Data'):
  input_df
 
 st.info(predict(input_df))
+
 '''
 # Button for prediction
 if st.button("Predict"):
-    result = predict(input_df)
+    result = predict(np.array([[17, 1, 0.9,202,22,102]])))
     if result == 1:  # Assuming 1 = Disease and 0 = No Disease
         st.error("The patient is classified as having liver disease.")
     else:
