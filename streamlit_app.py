@@ -59,7 +59,7 @@ with st.expander('Input Data'):
  input_df
 
 st.info(predict(input_df))
-
+'''
 # Button for prediction
 if st.button("Predict"):
     result = predict(input_df)
@@ -67,3 +67,4 @@ if st.button("Predict"):
         st.error("The patient is classified as having liver disease.")
     else:
         st.success("The patient is classified as healthy.")
+'''
