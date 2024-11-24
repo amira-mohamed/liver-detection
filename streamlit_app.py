@@ -50,14 +50,15 @@ data = {"age" : age,
 
 input_df = pd.DataFrame(data, index = [0])
 
-##input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
+# Encoding Gender
+input_df['gender'] = input_df['gender'].apply(lambda x: 2 if x == "Male" else 1)
 
 # input Data to present in streamlit
 with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(predict(input_df))
+st.info(predict(0))
 
 # Button for prediction
 if st.button("Predict"):
