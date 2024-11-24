@@ -41,7 +41,7 @@ ag_ratio = col6.number_input("A/G Ratio", min_value=0.0, max_value=5.0, step=0.1
 # Assume 2 = Male, 1 = Female
 if gender == "Male":
     gender_type = 2 
-else: 1
+else: gender_type = 1
 # Combine inputs into a single array
 
 data = {"age" : [age],
