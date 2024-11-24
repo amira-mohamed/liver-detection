@@ -58,7 +58,7 @@ with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(predict(0))
+st.info(0)
 
 # Button for prediction
 if st.button("Predict"):
