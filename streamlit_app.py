@@ -60,7 +60,7 @@ with st.expander('Input Data'):
 
 st.info(predict(np.array([[age,gender_type,tb,alkphos,sgpt,ag_ratio]])))
 
-'''
+
 # Button for prediction
 if st.button("Predict"):
     result = predict(np.array([[age,gender_type,tb,alkphos,sgpt,ag_ratio]]))
@@ -68,4 +68,4 @@ if st.button("Predict"):
         st.error("The patient is classified as having liver disease.")
     else:
         st.success("The patient is classified as healthy.")
-'''
+
