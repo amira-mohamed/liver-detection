@@ -110,6 +110,7 @@ with st.expander('Input Data'):
 
 st.info(y_test_hat)
 # Button for prediction
+
 if st.button("Predict"):
     result = y_test_hat
     if result == 1:  # Assuming 1 = Disease and 0 = No Disease
