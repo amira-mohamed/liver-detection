@@ -58,7 +58,7 @@ with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(predict(predict(np.array([[17, 2, 0.9,202,22,102]]))))
+st.info(predict(predict(np.array([[17, 2, 0.9,202,22,1.2]]))))
 
 '''
 # Button for prediction
