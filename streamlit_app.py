@@ -7,7 +7,7 @@ from xgboost import XGBClassifier
 
 
 # Load the trained model
-model = joblib.load("Model_liver_xgb.pkl")  # including the trained model
+model = joblib.load("saved_model.pkl")  # including the trained model
 
 # Function to make predictions
 def predict(input_data):
@@ -58,7 +58,7 @@ with st.expander('Input Data'):
  st.write('**Input Data**')
  input_df
 
-st.info(0)
+st.info(predict(input_df))
 
 # Button for prediction
 if st.button("Predict"):
